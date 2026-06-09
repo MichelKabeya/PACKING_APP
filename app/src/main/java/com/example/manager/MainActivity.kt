@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("comment", comment)
         }
 
-        
+
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
