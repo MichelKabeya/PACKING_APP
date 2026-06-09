@@ -27,36 +27,36 @@ class MainActivity : AppCompatActivity() {
         nameText.visibility = View.GONE
         val quantityText = findViewById<EditText>(R.id.quantityText)
         quantityText.visibility = View.GONE
-        val CategorySpin = findViewById<Spinner>(R.id.CategorySpin)
-        CategorySpin.visibility = View.GONE
+        val categorySpin = findViewById<Spinner>(R.id.CategorySpin)
+        categorySpin.visibility = View.GONE
         val nextView = findViewById<TextView>(R.id.nextView)
         nextView.visibility = View.GONE
         val addBtn = findViewById<Button>(R.id.addBtn)
         addBtn.visibility = View.GONE
         val startBtn = findViewById<Button>(R.id.startBtn)
-        val NextBtn = findViewById<Button>(R.id.NextBtn)
-        NextBtn.visibility = View.GONE
+        val nextBtn = findViewById<Button>(R.id.NextBtn)
+        nextBtn.visibility = View.GONE
         val saveView = findViewById<TextView>(R.id.saveView)
         saveView.visibility = View.GONE
         val addView = findViewById<TextView>(R.id.addView)
-        val pomptView = findViewById<TextView>(R.id.pomptView)
+        val promptView = findViewById<TextView>(R.id.pomptView)
         val insertPrompt = findViewById<TextView>(R.id.insertPrompt)
         insertPrompt.visibility = View.GONE
-        val closeView = findViewById<TextView>(R.id.closeView)
 
         // CLICK LISTENER FOR THE START BUTTON
         startBtn.setOnClickListener {
             commentText.visibility = View.VISIBLE
             nameText.visibility = View.VISIBLE
             quantityText.visibility = View.VISIBLE
-            CategorySpin.visibility = View.VISIBLE
+            categorySpin.visibility = View.VISIBLE
             nextView.visibility = View.VISIBLE
-            NextBtn.visibility = View.VISIBLE
+            nextBtn.visibility = View.VISIBLE
             addBtn.visibility = View.VISIBLE
             saveView.visibility = View.VISIBLE
             startBtn.visibility = View.GONE
-            pomptView.visibility = View.GONE
+            promptView.visibility = View.GONE
             insertPrompt.visibility = View.VISIBLE
+            addView.visibility = View.GONE
         }
         // DECLARATIONS OF ALL ARRAYS
         val items = Array<Any>(50) { i -> i + 0 }
@@ -64,7 +64,8 @@ class MainActivity : AppCompatActivity() {
         val quantity = IntArray(50) { i -> i + 0 }
         val comment = Array<Any>(50) { i -> i + 0 }
         // creating array of categories
-        val catItem = arrayListOf<String>(
+        val catItem = arrayListOf(
+            "choose a category",
             "Clothing",
             "Toiletries",
             "Stationary",
@@ -75,17 +76,17 @@ class MainActivity : AppCompatActivity() {
             catItem)
         // setting the adapter to the spinner
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        CategorySpin.adapter = adapter
+        categorySpin.adapter = adapter
 
         // CLICK LISTENER FOR THE NEXT BUTTON
         // opens the next activity
-        NextBtn.setOnClickListener {
+        nextBtn.setOnClickListener {
             val intent = Intent(this, List::class.java)
             startActivity(intent)
         }
         //CLICK LISTENER FOR CLOSE BUTTON
         // closes the activity
-        closeView.setOnClickListener {
+        stopBtn.setOnClickListener {
             finishAffinity()
         }
         // CLICK LISTENER FOR THE ADD BUTTON
@@ -94,7 +95,7 @@ class MainActivity : AppCompatActivity() {
             // IF statement handling empty fields
             if (nameText.text.toString().isEmpty() ||
                 quantityText.text.toString().isEmpty() ||
-                CategorySpin.selectedItem.toString().isEmpty()){
+                categorySpin.selectedItem.toString().isEmpty()){
                 nameText.error = "Required"
                 quantityText.error = "Required"
             }
@@ -102,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                 // FOR loop that will populate the arrays
                 for (counter in 0..50) {
                     items[counter] = nameText.text.toString()
-                    category[counter] = CategorySpin.selectedItem.toString()
+                    category[counter] = categorySpin.selectedItem.toString()
                     quantity[counter] = quantityText.text.toString().toInt()
                     comment[counter] = commentText.text.toString()
                     nameText.text.clear()
