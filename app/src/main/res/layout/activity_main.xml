@@ -24,68 +24,181 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.08" />
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="366dp"
-        android:layout_height="546dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="56dp"
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="354dp"
+        android:layout_height="561dp"
         android:background="@drawable/rounded_corner"
+        android:backgroundTint="#FFFFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0">
-
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/pomptView"
-        android:layout_width="326dp"
-        android:layout_height="37dp"
-        android:text="click ADD to start"
-        android:textAlignment="center"
-        android:textColor="#050505"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.741"
+        app:srcCompat="@drawable/download__1_" />
 
     <Button
-        android:id="@+id/addBtn"
-        android:layout_width="90dp"
-        android:layout_height="99dp"
-        android:layout_marginBottom="100dp"
+        android:id="@+id/startBtn"
+        android:layout_width="87dp"
+        android:layout_height="91dp"
         android:background=""
-        android:backgroundTint="@android:color/white"
+        android:backgroundTint="#FFFFFF"
         android:text="+"
         android:textAlignment="center"
         android:textColor="#212020"
         android:textSize="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="90" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875" />
+
+    <EditText
+        android:id="@+id/commentText"
+        android:layout_width="293dp"
+        android:layout_height="43dp"
+        android:background="@drawable/rounded_textview"
+        android:ems="10"
+        android:fontFamily="@font/aldrich"
+        android:hint="item"
+        android:inputType="text"
+        android:singleLine="false"
+        android:text="Name"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.672"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/quantityText"
+        android:layout_width="299dp"
+        android:layout_height="47dp"
+        android:background="@drawable/rounded_textview"
+        android:ems="10"
+        android:fontFamily="@font/aldrich"
+        android:hint="Quantity"
+        android:inputType="number"
+        android:singleLine="true"
+        android:text="Name"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.561"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Spinner
+        android:id="@+id/CategorySpin"
+        android:layout_width="296dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_textview"
+        android:fontFamily="@font/aldrich"
+        android:hint="Category"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.436"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/addView"
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:layout_marginTop="510dp"
+        android:fontFamily="@font/aldrich"
         android:text="ADD"
         android:textAlignment="center"
-        android:textColor="#212020"
+        android:textColor="#0F0E0E"
         android:textSize="20sp"
-        android:fontFamily="@font/aldrich"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.732" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="90dp"
+        android:layout_height="99dp"
+        android:layout_marginBottom="72dp"
+        android:background=""
+        android:backgroundTint="#FFFFFF"
+        android:text="+"
+        android:textAlignment="center"
+        android:textColor="#212020"
+        android:textSize="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="90" />
+
+    <EditText
+        android:id="@+id/nameText"
+        android:layout_width="297dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_textview"
+        android:ems="10"
+        android:hint="item"
+        android:inputType="text"
+        android:singleLine="true"
+        android:text="Name"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/pomptView"
+        android:layout_width="326dp"
+        android:layout_height="37dp"
+        android:fontFamily="@font/aldrich"
+        android:text="click ADD to start"
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/insertPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich"
+        android:text="Please enter details"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.203" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
