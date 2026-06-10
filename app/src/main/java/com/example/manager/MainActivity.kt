@@ -59,10 +59,10 @@ class MainActivity : AppCompatActivity() {
             addView.visibility = View.GONE
         }
         // DECLARATIONS OF ALL ARRAYS
-        val items = Array<Any>(50) { i -> i + 0 }
-        val category = Array<Any>(50) { i -> i + 0 }
-        val quantity = IntArray(50) { i -> i + 0 }
-        val comment = Array<Any>(50) { i -> i + 0 }
+        val items = Array(50) {""}
+        val category = Array(50) {""}
+        val quantity = Array(50) {""}
+        val comment = Array(50) {""}
         // creating array of categories
         val catItem = arrayListOf(
             "choose a category",
@@ -82,6 +82,12 @@ class MainActivity : AppCompatActivity() {
         // opens the next activity
         nextBtn.setOnClickListener {
             val intent = Intent(this, List::class.java)
+            // SENDING ARRAYS DATA TO THE NEXT ACTIVITY
+            intent.putExtra("items", items)
+            intent.putExtra("category", category)
+            intent.putExtra("quantity", quantity)
+            intent.putExtra("comment", comment)
+
             startActivity(intent)
         }
         //CLICK LISTENER FOR CLOSE BUTTON
@@ -89,36 +95,36 @@ class MainActivity : AppCompatActivity() {
         stopBtn.setOnClickListener {
             finishAffinity()
         }
+        var counter = 0
         // CLICK LISTENER FOR THE ADD BUTTON
         addBtn.setOnClickListener {
-            var counter = 0
+            val qty = quantityText.text.toString().toIntOrNull()
             // IF statement handling empty fields
             if (nameText.text.toString().isEmpty() ||
-                quantityText.text.toString().isEmpty() ||
+                qty == null ||
+                qty <= 0 ||
                 categorySpin.selectedItem.toString().isEmpty()){
                 nameText.error = "Required"
                 quantityText.error = "Required"
+                return@setOnClickListener
             }
             else{
+                if (counter >= 50) {
+                    return@setOnClickListener
+                }
                 // FOR loop that will populate the arrays
-                for (counter in 0..50) {
                     items[counter] = nameText.text.toString()
                     category[counter] = categorySpin.selectedItem.toString()
-                    quantity[counter] = quantityText.text.toString().toInt()
+                    quantity[counter] = quantityText.text.toString()
                     comment[counter] = commentText.text.toString()
                     nameText.text.clear()
                     quantityText.text.clear()
                     commentText.text.clear()
-                }
+
                 counter++
-            }
-            // SENDING ARRAYS DATA TO THE NEXT ACTIVITY
-            val intent = Intent(this, List::class.java)
-            intent.putExtra("items", items)
-            intent.putExtra("category", category)
-            intent.putExtra("quantity", quantity)
-            intent.putExtra("comment", comment)
+                }
         }
+
 
 
 
